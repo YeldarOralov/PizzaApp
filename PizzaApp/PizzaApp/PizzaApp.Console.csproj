@@ -79,5 +79,23 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaApp.DataAccess\PizzaApp.DataAccess.csproj">
+      <Project>{29125CB1-57EC-47C6-9770-BBD9F2DBD490}</Project>
+      <Name>PizzaApp.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PizzaApp.Models\PizzaApp.Models.csproj">
+      <Project>{D4E410AD-A5BA-4F8D-B69D-F882611B5D49}</Project>
+      <Name>PizzaApp.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PizzaApp.Services.Abstract\PizzaApp.Services.Abstract.csproj">
+      <Project>{68230D70-C4DC-4DB6-8655-C99A599E92F6}</Project>
+      <Name>PizzaApp.Services.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PizzaApp.Services\PizzaApp.Services.csproj">
+      <Project>{1C3F1E08-7EF1-4BB6-BD73-5E7B4D387DE1}</Project>
+      <Name>PizzaApp.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

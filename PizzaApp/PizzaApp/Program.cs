@@ -1,10 +1,15 @@
-﻿using System;
+﻿using PizzaApp.DataAccess;
+using PizzaApp.Models;
+using PizzaApp.Services;
+using PizzaApp.Services.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
+using Telegram.Bot.Types.Enums;
 using TLSharp.Core;
 
 namespace PizzaApp
@@ -13,19 +18,11 @@ namespace PizzaApp
     {
         static void Main(string[] args)
         {
-            TelegramBotClient botClient = new TelegramBotClient("832540995:AAH63xL0NmwqSN4_7baZmMBrAaFloWvBFsc");
-
-            var me = botClient.GetMeAsync().Result;
-            Console.WriteLine(me.Username);
-
-            botClient.OnMessage += SendMessage;
-            botClient.StartReceiving();
-            void SendMessage(object sender, MessageEventArgs messageEventArgs)
+            ProductTableDataService products = new ProductTableDataService();
+            foreach(var product in products.GetAll())
             {
-                var chatId = messageEventArgs.Message.Chat.Id;
-                botClient.SendTextMessageAsync(chatId, "Hello!");
+                Console.WriteLine($"{product.Name} - {product.Description} - {product.Price}");
             }
-
             Console.Read();
         }
 
